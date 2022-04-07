@@ -5,6 +5,8 @@ typedef struct list{
 	struct list *prox;
 	}list; //Criamos uma struct que será a nossa lista encadeada
 
+void imprimeLista(list * );//Fiz uma função somente para ilustrar
+
 int main(){
 	struct list *origem=NULL;//criaremos nossa origem que servirá como cabeça de nossa lista
 	list *A=(list*) malloc(sizeof(list*));
@@ -24,7 +26,14 @@ int main(){
 	D->c=4;
 	D->prox=C->prox;
 	C->prox=D;
-	
+	imprimeLista(origem);
 	return 0;
 }
 
+void imprimeLista(list *origem){//Fiz uma função somente para ilustrar 
+	list *p=origem;
+	while(p!=NULL){
+		printf("%hd ",p->c);
+		p=p->prox;
+	}
+}
