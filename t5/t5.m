@@ -1,7 +1,7 @@
 text == [char]
 line == [char]
 word == [char]
-
+abc='de'
 just::num->text->text  ||the main function
 just n = concat.map(reformat n).paras.map words.lines
 
@@ -59,7 +59,10 @@ words :: line->[word]
 
 words = filter (~=[]) . foldr (breakon ' ') [[]]
 
-finded :: [word]->word ||essa será a nossa função para achar um determinado conjunto de letras
+find :: [word]->word ||essa será a nossa função para achar um determinado conjunto de letras
 
-finded = take 10 word 
 
+find = take 3 word 
+
+finded x = true, if finded==abc
+>       =  false, otherwise
