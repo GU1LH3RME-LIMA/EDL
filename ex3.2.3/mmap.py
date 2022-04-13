@@ -1,13 +1,11 @@
 def contrario(plv):#irá inverter a palavra 
-    plv_rev = plv[len(plv)::-1]
-    return plv_rev
+    return plv[len(plv)::-1]
 
 def mmap(function,lista):#irá retornar uma lista de mesmo tamanho de acordo com a função solicitada
     
-    newlist=[]
     for i in range(0,len(lista)):
-        newlist.append(function(lista[i]))
-    return newlist
+        lista[i]=function(lista[i])
+    return lista
 
 
 lista=["abc","java","arara"]
