@@ -2,7 +2,7 @@ import Data.List
 import Graphics.Rendering.OpenGL (VariableType(Float'))
 
 impostoRPRJ::Float->Float 
-impostoRPRJ(x) = x+(x*(15/100)) --imposto sobre roupas
+impostoRPRJ x = x+(x*(15/100)) --imposto sobre roupas
 
 precoNovo=map impostoRPRJ [55.90,39.15,100,74.50]
 main = do
