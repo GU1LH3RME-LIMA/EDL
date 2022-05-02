@@ -18,10 +18,10 @@ media_aluno (x, y, z) = ( y + z) / 2
 --calcula a média dos alunos
 
 
-alunos_abaixo :: Aluno -> String
-alunos_abaixo(x,y,z) 
-    |media_aluno(x,y,z) >=7 =x
-    |otherwise=""
+alunos_acima :: Aluno -> [String]
+alunos_acima(x,y,z) 
+    |media_aluno(x,y,z) >=7 =[x]
+    |otherwise=[]
 
 alunos::[Aluno]
 alunos=[("Crzinho",4.0,5.5),("Mbappe",8.7,6.3),("Samidion Ammin",6.9,10),("Arrascaeta",10.0,10.0),("Diego Lopes",5.9,4.0),("Yago",5.4,4.3),("Alex Sena",7,7),("Raquel",7.5,9),("Miguel",2,9),("Alexandre",8,4)]
@@ -34,7 +34,7 @@ main = do
     --print alunos
     --print(map nome alunos) -- mapeado o nome dos alunos
     print media_alunos -- mostrará as médias
-    print (map alunos_abaixo alunos)
+    print (foldr (++) [] (map alunos_acima alunos))
     
     
 
