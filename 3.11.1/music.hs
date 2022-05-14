@@ -20,7 +20,7 @@ musicas = [ ("Aquele Abraco", 0, 100),
 --nomes  = map    (\(nm,_,_) ->  nm)        musicas
 --longas = filter (\(_,_,dur) -> dur>=120) musicas
 --maior  = foldr f 0 musicas
-bandas_inter = map (intercalate ", ") bandas
+bandas_inter = intercalate ", " (map (intercalate ", ") bandas)
 
 --f :: Musica -> Int -> Int
 --f (_,_,dur) maior = if dur > maior then dur else maior
