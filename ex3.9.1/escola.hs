@@ -25,11 +25,14 @@ alunos=[("Crzinho",4.0,5.5),("Mbappe",8.7,6.3),("Samidion Ammin",6.9,10),("Arras
 
 media_alunos :: [Float]
 media_alunos = map media_aluno alunos
+
+alunos_abaixo=filter (\alu -> ((media_aluno alu))<7) alunos
+media_alunos_abaixo= map media_aluno alunos_abaixo
 --a media dos alunos
 main = do
     print media_alunos -- mostrará as médias
     print (media_turma media_alunos) --média da turma
-    print (foldr (\ _ -> (+1)) 0 (filter (<7) media_alunos)) --quantidade de alunos reprovados
+    print (media_turma media_alunos_abaixo) --media de alunos reprovados
     print (foldr (\ _ -> (+1)) 0 (filter (>=7) media_alunos)) --quantidade de alunos aprovados
     
 
