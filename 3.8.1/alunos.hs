@@ -3,7 +3,8 @@ import Text.PrettyPrint.Annotated.HughesPJClass (Pretty(pPrintList))
 
 type Aluno = (String,Float ,Float)
 --criado um tipo aluno
-
+alunos::[Aluno]
+alunos=[("Crzinho",4.0,5.5),("Mbappe",8.7,6.3),("Samidion Ammin",6.9,10),("Arrascaeta",10.0,10.0),("Diego Lopes",5.9,4.0),("Yago",5.4,4.3),("Alex Sena",7,7),("Raquel",7.5,9),("Miguel",2,9),("Alexandre",8,4)]
 nome :: Aluno -> String
 nome (x,_,_) = x
 
@@ -17,14 +18,12 @@ media_aluno :: Aluno -> Float
 media_aluno (x, y, z) = ( y + z) / 2
 --calcula a média dos alunos
 
+alunos_acima=filter (\alu -> ((media_aluno alu))>=7) alunos
 
-alunos_acima :: Aluno -> [String]
-alunos_acima(x,y,z) 
-    |media_aluno(x,y,z) >=7 =[x]
-    |otherwise=[]
+nomes_acima=map nome alunos_acima
 
-alunos::[Aluno]
-alunos=[("Crzinho",4.0,5.5),("Mbappe",8.7,6.3),("Samidion Ammin",6.9,10),("Arrascaeta",10.0,10.0),("Diego Lopes",5.9,4.0),("Yago",5.4,4.3),("Alex Sena",7,7),("Raquel",7.5,9),("Miguel",2,9),("Alexandre",8,4)]
+   
+
 --  criado os alunos na escola
 
 media_alunos :: [Float]
@@ -33,8 +32,8 @@ media_alunos = map media_aluno alunos
 main = do
     --print alunos
     --print(map nome alunos) -- mapeado o nome dos alunos
-    print media_alunos -- mostrará as médias
-    print (foldr (++) [] (map alunos_acima alunos))
+    --print media_alunos -- mostrará as médias
+    print nomes_acima
     
     
 
