@@ -1,5 +1,4 @@
 import Data.List
-import Graphics.Rendering.OpenGL (VariableType(Float'))
 bandas :: [[String]]
 bandas = [ ["Gilberto Gil"],
            ["Victor","Leo"],
@@ -30,13 +29,13 @@ duracao= map (\(_,_,dur)-> dur) musicas
 juntos= zip3 nomes autores duracao
 
 
-texto1=map (\(a,b,c)-> "Musica"++  a juntos ++"/n"++"Banda"++ b juntos++"/n" ++"Duração"++ c juntos++"/n")
+texto1=map (\(a,b,c)-> "Musica"++ map a juntos ++"/n"++"Banda"++map b juntos++"/n" ++"Duração"++map c juntos++"/n")
 
 --f :: Musica -> Int -> Int
 --f (_,_,dur) maior = if dur > maior then dur else maior
 
---texto2=foldr (++) [] texto1
+texto2= map (intercalate ", ") texto1
 
 main = do  
     --print bandas_inter
-    putStr(show++texto1)
+    putStr (texto2)
